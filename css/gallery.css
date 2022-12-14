@@ -10,10 +10,6 @@
     justify-content: center;
 }
 
-.search-nav {
-    grid-area: 2, 1, 2, 1;
-}
-
 @media (max-width:600px) {
 
     .grid-container {
@@ -21,8 +17,11 @@
         grid-template-rows: repeat(9, 1fr);
     }
 
-    .menu-toggle-btn {
-        display: block;
+    .menu-btn {
+        visibility: visible !important;
+        margin: auto;
+        border-radius: 40%;
+        grid-area: 1/7/1/7;
     }
 
     .cell {
@@ -30,11 +29,16 @@
         height: 100%;
     }
 
-    .main-nav {
-        display: none;
+    .menu-btn {
+        visibility: visible
     }
 
-    .logo {
+    .btn.gall {
+        display: none;
+        margin: auto;
+    }
+
+    .btn.about {
         display: none;
     }
 }
