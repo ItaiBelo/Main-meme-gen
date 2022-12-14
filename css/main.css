@@ -1,0 +1,49 @@
+/* Setup */
+@import './setup/vars.css';
+@import './setup/font-face.css';
+
+/* Basic */
+@import './basic/helpers.css';
+
+/* gallery */
+
+@import './gallery.css';
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Poppins;
+    color: var(--clr2);
+    /* line-height: 1.25em; */
+    letter-spacing: 0.48px;
+    line-height: 1.13;
+}
+
+body {
+    margin: 0;
+}
+
+.menu-btn {
+    display: none;
+}
+
+header {
+    background-color: rgb(148, 171, 171);
+    width: 95vw;
+    height: 7vh;
+    margin: auto;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+}
+
+.gallery {
+    flex-direction: row;
+    background-color: aqua;
+    height: 100%;
+    width: 100%;
+}
