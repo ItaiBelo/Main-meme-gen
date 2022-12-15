@@ -17,7 +17,6 @@ function renderGallery() {
 
 function onImgClick(img) {
     setGmemeImgId(img.id)
-    // console.log("🚀 ~ file: gallery-controller.js:19 ~ onImgClick ~ img", img)
     document.querySelector('.gallery').style.display = 'none'
     showEditor()
     drawImg(img.src)

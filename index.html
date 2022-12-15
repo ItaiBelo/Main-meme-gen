@@ -37,7 +37,8 @@
                     <div class="row-1 flex">
                         <button onclick="onUp()" class="btn-editor"><img src="icons/up-arrow.png"></button>
                         <button onclick="onDown()" class="btn-editor"><img src="icons/down-arrow.png"></button>
-                        <button onclick="onDelete()" class="btn-editor"><img src="icons/delete.png"></button>
+                        <button onclick="onDeleteLine()" class="btn-editor"><img src="icons/delete.png"></button>
+                        <!-- <button onclick="onSwitch()" class="btn-editor">switch</button> -->
                     </div>
                     <div class="second-area flex ">
                         <div class="row-2 flex">
@@ -55,7 +56,8 @@
                             <button onclick="onRight()" class="btn-editor"><img src="icons/align-right.png"></button>
                             </button>
                             <button onclick="onFontColor()" class="btn-editor "><img
-                                    src="icons/color-palette.png"></button>
+                                    src="icons/color-palette.png"></button> <input type="color" id="space-color"
+                                name="space-color" value="#ff0000" oninput="updateColor(this.value)">
                         </div>
                         </button>
                     </div>
@@ -75,8 +77,6 @@
     <footer>credits </footer>
 
     <script src="js/canvas-utils.js"></script>
-    <script src="js/services/upload-service.js"></script>
-    <script src="js/services/canvas-service.js"></script>
     <script src="js/gallery/gallery-service.js"></script>
     <script src="js/gallery/gallery-controller.js"></script>
     <script src="js/editor/editor-service.js"></script>
