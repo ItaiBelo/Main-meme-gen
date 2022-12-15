@@ -10,6 +10,7 @@ function downloadCanvas(elLink) {
 function resizeCanvas() {
     const elContainer = document.querySelector('.canvas-container')
     gElCanvas.width = elContainer.offsetWidth - 20
+    gElCanvas.height = elContainer.offsetHeight - 20
 }
 
 function clearCanvas() {
@@ -26,11 +27,4 @@ function loadImageFromInput(ev, onImageReady) {
         img.onload = () => onImageReady(img)
     }
     reader.readAsDataURL(ev.target.files[0]) // Read the file we picked
-}
-
-function downloadCanvas(elLink) {
-    // Gets the canvas content and convert it to base64 data URL that can be save as an image
-    const data = gElCanvas.toDataURL() // Method returns a data URL containing a representation of the image in the format specified by the type parameter.
-    elLink.href = data // Put it on the link
-    // elLink.download = 'shuki' // Can change the name of the file
 }

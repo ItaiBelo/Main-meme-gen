@@ -32,33 +32,35 @@
             </div>
             <div class="meme-editor">
                 <div class="editor-btns flex">
-                    <input type="text" class="meme-text" onchange="onChangeText(this.value)" placeholder="type here">
+                    <input type="text" class="meme-text" id="meme-text" oninput="renderText(this.value)"
+                        placeholder="type here">
                     <div class="row-1 flex">
                         <button onclick="onUp()" class="btn-editor"><img src="icons/up-arrow.png"></button>
                         <button onclick="onDown()" class="btn-editor"><img src="icons/down-arrow.png"></button>
                         <button onclick="onDelete()" class="btn-editor"><img src="icons/delete.png"></button>
                     </div>
                     <div class="second-area flex ">
-                        <div class="row-2">
+                        <div class="row-2 flex">
                             <button onclick="onAdd()" class="btn-editor"><img src="icons/plus.png"></button>
                             <button onclick="onBiggerFont()" class="btn-editor"><img
                                     src="icons/a-plus.png"></button></button>
                             <button onclick="onSmallerFont()" class="btn-editor"><img
                                     src="icons/a-minus-result.png"></button></button>
                         </div>
-                        <div class="row-3">
+                        <div class="row-3 flex">
                             <button onclick="onLeft()" class="btn-editor"><img
                                     src="icons/align-left.png"></button></button>
                             <button onclick="onCenter()" class="btn-editor"><img
                                     src="icons/align-center.png"></button></button>
                             <button onclick="onRight()" class="btn-editor"><img src="icons/align-right.png"></button>
                             </button>
+                            <button onclick="onFontColor()" class="btn-editor "><img
+                                    src="icons/color-palette.png"></button>
                         </div>
-                        <button onclick="onFontColor()" class="btn-editor "><img src="icons/color-palette.png"></button>
                         </button>
                     </div>
                     <div class="row-4 flex">
-                        <button class="btn-editor" onclick="onSace()">save</button>
+                        <button class="btn-editor" onclick="onShare()">Share</button>
                         <button class="btn-editor" onclick="onDownload()">download</button>
                         <button class="btn-editor" onclick="onClear()">Clear</button>
                     </div>

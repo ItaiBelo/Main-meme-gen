@@ -22,19 +22,21 @@ var gImgs = [
     { id: 18, url: 'images/18.jpg', keywords: ['funny', 'cat'] },
 ];
 
-// var gMeme = {
-//     selectedImgId: 5,
-//     selectedLineIdx: 0,
-//     lines: [
-//         {
-//             txt: 'I sometimes eat Falafel',
-//             size: 20,
-//             align: 'left',
-//             color: 'red'
-//         }
-//     ]
-// }
 
 function getImgs() {
     return gImgs
+}
+
+function drawImg(file) {
+    const elImg = new Image()
+    elImg.src = file
+    elImg.onload = () => {
+        gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
+    }
+}
+
+function getImgById(id) {
+    const img = gImgs.find(img => img.id === +id)
+    // console.log(img)
+    return img
 }
