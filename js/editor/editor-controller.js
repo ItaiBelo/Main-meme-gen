@@ -2,10 +2,9 @@
 
 
 function initEditor() {
-    gElContainer = document.querySelector('.canvas-container')
     setGlobalVars()
     resizeCanvas()
-    renderText(gElCanvas, gTextInput)
+    renderCanvas(gElCanvas, gTextInput)
     window.addEventListener('resize', () => {
         resizeCanvas()
     })
@@ -16,35 +15,40 @@ function showEditor() {
     initEditor()
 }
 
-function renderText(text) {
+function renderCanvas(text) {
     gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height)
     var imgId = getImgById(gMeme.selectedImgId).id
-    console.log(imgId)
     const img = document.getElementById(`${imgId}`)
-    console.log(img)
     gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
     changeGMemeText(text)
     drawText()
 }
-
-
-
 
 function onClear() {
     clearCanvas()
 }
 
 function onSwitch() {
-    gMeme.selectedLineIdx++
-    console.log(gMeme.selectedLineIdx)
+    let lines = getLine()
+    const currLine = lines[gMeme.selectedLineIdx]
+    const previousLine = lines[gMeme.selectedLineIdx - 1]
+    const lastLine = lines[lines.length - 1]
+
+    if (!gMeme.selectedLineIdx) {
+        gMeme.selectedLineIdx += (lines.length) - 1
+        gTextInput.value = lastLine.txt
+        return
+    }
+    gTextInput.value = previousLine.txt
+    gMeme.selectedLineIdx--
 }
 
-function onUp() {
-
+function onLineUp() {
+    lineUp()
 }
 
-function onDown() {
-
+function onLineDown() {
+    lineDown()
 }
 
 function onDeleteLine() {
@@ -56,19 +60,24 @@ function onAdd() {
 }
 
 function onSmallerFont() {
+    smallerFont()
+}
+
+function onBiggerFont() {
+    biggerFont()
+}
+
+function onAlignLeft() {
+    alignLeft()
+}
+
+function onAlignCenter() {
+    alignCenter()
 
 }
 
-function onLeft() {
-
-}
-
-function onCenter() {
-
-}
-
-function onRight() {
-
+function onAlignRight() {
+    alignRight()
 }
 
 function onFontColor() {
