@@ -90,10 +90,10 @@ function onShare() {
 }
 
 function onGalleryClick() {
+    gTextInput.value = ''
     renderGallery()
     document.querySelector('.gallery').style.display = 'block'
     document.querySelector('.editor').style.display = 'none'
-
 }
 
 function onSave() {

@@ -12,7 +12,7 @@
 <body class="main-layout " onload="onInit()">
     <div class="main-screen" onclick="toggleMenu()"> </div>
     <header class="flex">
-        <div class="logo"><img class="logo-img" src="icons/logo.png"></span></div>
+        <div class="logo" onclick="onGalleryClick()"><img class="logo-img" src="icons/logo.png"></span></div>
 
         <ul class="nav-bar flex clean-list">
             <li clas><a class="btn gall" href="#" onclick="onGalleryClick()">gallery</a></li>
@@ -26,7 +26,8 @@
             <div class="gap"></div>
             <div class="search-img flex">
                 <div class="search-cell">
-                    <input class="filter-img" type="text" data-trans="search" placeholder="Search" oninput="">
+                    <input class="filter-img" type="text" placeholder="Funny,Celebs,Animals etc..."
+                        oninput="renderFilteredImgs(this.value)">
                 </div>
 
                 <div class="click-filter flex justify-center align-center"> here will be rendered</div>
@@ -39,16 +40,14 @@
                 <canvas id="my-canvas" height="550" width="700"></canvas>
             </div>
             <div class="meme-editor flex">
-
-
                 <input type="text" class="meme-text" id="meme-text" oninput="renderCanvas(this.value)"
                     placeholder="type here">
                 <div class="row row-1 flex">
-                    <button title="Switch row" onclick="onSwitch()" class="btn-editor switch"><img
+                    <button title="Switch row" onclick="onSwitch()" class="btn-editor first-row-btn switch"><img
                             src="icons/swap.png"></button>
-                    <button title="Add row" onclick="onAdd()" class="btn-editor plus"><img
+                    <button title="Add row" onclick="onAdd()" class="btn-editor first-row-btn plus"><img
                             src="icons/plus.png"></button>
-                    <button title="Clear row" onclick="onDeleteLine()" class="btn-editor trash"><img
+                    <button title="Clear row" onclick="onDeleteLine()" class="btn-editor first-row-btn trash"><img
                             src="icons/delete.png"></button>
                 </div>
                 <div class="second-area flex ">
@@ -80,11 +79,11 @@
                     </button>
                 </div>
                 <div class="row row-4 flex">
-                    <button title="Upload file" class="btn-editor share" onclick="onShare()"><img
+                    <button title="Upload file" class="btn-editor forth-row-btn share" onclick="onShare()"><img
                             src="icons/share.png"></button>
-                    <button title="Download file" class="btn-editor download" onclick="onDownload()"><img
+                    <button title="Download file" class="btn-editor forth-row-btn download" onclick="onDownload()"><img
                             src="icons/diskette.png"></button>
-                    <button title="Save file" class="btn-editor save" onclick="onSave()"><img
+                    <button title="Save file" class="btn-editor forth-row-btn save" onclick="onSave()"><img
                             src="icons/upload.png"></button>
                 </div>
             </div>

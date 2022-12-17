@@ -6,6 +6,7 @@ function onInit() {
 
 function renderGallery() {
     // debugger
+    // console.log('hey')
     const imgs = getImgs()
     const elContainer = document.querySelector('.grid-container')
     var strHTMLs = ``
@@ -36,3 +37,18 @@ function renderSavedMemes() {
     elContainer.innerHTML = strHTMLs
 }
 
+
+function renderFilteredImgs(searchWord) {
+    // console.log(searchWord)
+    if (!searchWord) {
+        searchWord = null
+        renderGallery()
+    }
+    let filteredImgs = gImgs.filter(img => img.keywords.includes(searchWord.toLowerCase()))
+    const elContainer = document.querySelector('.grid-container')
+    var strHTMLs = ``
+    filteredImgs.forEach((img) => {
+        strHTMLs += `<img class="cell" src="${img.url}" id=${img.id} onclick="onImgClick(this)">`
+    });
+    elContainer.innerHTML = strHTMLs
+}

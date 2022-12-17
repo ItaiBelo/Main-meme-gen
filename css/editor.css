@@ -39,52 +39,47 @@
     width: 55%;
 }
 
-.plus {
+.first-row-btn {
     width: 58px;
     height: 53px;
-    box-shadow: 2px 2px 0 #015d33, inset 0 5px 0 rgba(255, 255, 255, 0.58);
     border-radius: 15px;
+    border-style: none;
+}
+
+.plus {
+    box-shadow: 2px 2px 0 #015d33, inset 0 5px 0 rgba(255, 255, 255, 0.58);
     background-color: var(--clr5);
     background-image: linear-gradient(-38deg, #42eb5c 0%, #37b34a 100%);
-    border-style: none;
 }
 
 .switch {
-    width: 57px;
-    height: 53px;
     box-shadow: 2px 2px 0 #048b97, inset 0 5px 0 rgba(255, 255, 255, 0.58);
-    border-radius: 15px;
     background-color: var(--clr5);
     background-image: linear-gradient(-38deg, #66c4dc 0%, #40b1ce 50%, #0c98bb 100%);
-    border-style: none;
 }
 
 .trash {
-    width: 58px;
-    height: 53px;
     box-shadow: 2px 2px 0 #8c0606, inset 0 5px 0 rgba(255, 255, 255, 0.58);
-    border-radius: 15px;
     background-color: var(--clr5);
     background-image: linear-gradient(-38deg, #cf1d37 0%, #cf1d37 1%, #f05036 100%);
-    border-style: none;
 }
+
+.forth-row-btn {
+    border-radius: 10px;
+    border: none;
+}
+
 
 .share {
     background-image: linear-gradient(-38deg, #ffffff 0%, #c34f96 1%, #8036f0 100%);
-    border-radius: 10px;
-    border: none;
 }
 
 .download {
     background-image: linear-gradient(-38deg, #ffffff 0%, #2525e9 1%, #9599cf 100%);
-    border-radius: 10px;
-    border: none;
 }
 
 .save {
     background-image: linear-gradient(-38deg, #ffffff 0%, #e96d25 1%, #dbca7d 100%);
-    border-radius: 10px;
-    border: none;
 }
 
 .second-area {

@@ -79,8 +79,7 @@ footer {
 }
 
 .logo {
-    grid-area: 1/ 6/ 1/ 2;
-    align-self: center;
+    cursor: pointer;
 }
 
 .cell {
