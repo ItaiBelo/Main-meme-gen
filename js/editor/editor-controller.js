@@ -10,11 +10,6 @@ function initEditor() {
     })
 }
 
-function showEditor() {
-    document.querySelector('.editor').style.display = 'flex'
-    initEditor()
-}
-
 function renderCanvas(text) {
     gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height)
     var imgId = getImgById(gMeme.selectedImgId).id
@@ -81,7 +76,9 @@ function onAlignRight() {
 }
 
 function onFontColor() {
-    setSpaceColor() //// adjust to text 
+    var colorPicker = document.querySelector('.space-color')
+    colorPicker.click();
+    setSpaceColor()
 }
 
 function onDownload() {
@@ -92,3 +89,13 @@ function onShare() {
     uploadImg()
 }
 
+function onGalleryClick() {
+    renderGallery()
+    document.querySelector('.gallery').style.display = 'block'
+    document.querySelector('.editor').style.display = 'none'
+
+}
+
+function onSave() {
+    saveCanvas()
+}

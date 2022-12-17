@@ -1,5 +1,5 @@
 'use strict'
-
+const STORAGE_MEMES_KEY = 'Saved'
 let gElCanvas
 let gCtx
 let gTextInput
@@ -29,7 +29,7 @@ function drawText(y = gElCanvas.offsetHeight / 5, x = gElCanvas.offsetWidth / 2)
         y = line.y
         gCtx.lineWidth = 7
         gCtx.strokeStyle = 'black'
-        gCtx.font = `${line.size}px poppins`
+        gCtx.font = `${line.size}px impact`
         gCtx.fillStyle = line.color
         gCtx.textAlign = line.align;
         gCtx.strokeText(text, x, y)
@@ -154,4 +154,8 @@ function alignLeft() {
     currLine.align = 'left'
     currLine.x = gElCanvas.width / 10
     renderCanvas(currLine.txt)
+}
+
+function toggleMenu() {
+    document.body.classList.toggle('menu-open');
 }

@@ -1,6 +1,19 @@
 :root {
     /* pallete */
-    /* header color */
+
+    /* gallery bg-color */
+    --clr1: #22252c;
+    /* gallery containter bg-color */
+    --clr2: #383b42;
+    /* gallery click-filter color */
+    --clr3: #87898d;
+    /* editor buttons bg */
+    --clr4: #383b42;
+    /* editor form bg */
+    --clr5: #ebeef3;
+    /* editor btns bg */
+    --clr6: #19a59f;
+
 
     /* bp */
     --s: 600px;

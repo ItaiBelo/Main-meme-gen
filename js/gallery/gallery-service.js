@@ -1,7 +1,7 @@
 'use strict'
 
-var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
-var gImgs = [
+let gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
+let gImgs = [
     { id: 1, url: 'images/1.jpg', keywords: ['funny', 'cat'] },
     { id: 2, url: 'images/2.jpg', keywords: ['funny', 'cat'] },
     { id: 3, url: 'images/3.jpg', keywords: ['funny', 'cat'] },
@@ -21,6 +21,7 @@ var gImgs = [
     { id: 17, url: 'images/17.jpg', keywords: ['funny', 'cat'] },
     { id: 18, url: 'images/18.jpg', keywords: ['funny', 'cat'] },
 ];
+let gSavedMemes = []
 
 
 function getImgs() {

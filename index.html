@@ -10,19 +10,27 @@
 </head>
 
 <body class="main-layout " onload="onInit()">
+    <div class="main-screen" onclick="toggleMenu()"> </div>
+    <header class="flex">
+        <div class="logo"><img class="logo-img" src="icons/logo.png"></span></div>
 
-    <div class="header-container">
-        <header class="main-header">
-            <div class="logo">logo</span></div>
-            <a class="btn gall" href="#">gallery</a>
-            <a class="btn about" href="#">About</a>
-            <button class="menu-btn" onclick="toggleMenu()">☰</button>
-        </header>
-    </div>
+        <ul class="nav-bar flex clean-list">
+            <li clas><a class="btn gall" href="#" onclick="onGalleryClick()">gallery</a></li>
+            <li><a class="btn about" href="#" onclick="renderSavedMemes()">My Memes</a></li>
+        </ul>
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    </header>
 
     <main>
         <section class="gallery ">
-            <div class=" search-nav"> search </div>
+            <div class="gap"></div>
+            <div class="search-img flex">
+                <div class="search-cell">
+                    <input class="filter-img" type="text" data-trans="search" placeholder="Search" oninput="">
+                </div>
+
+                <div class="click-filter flex justify-center align-center"> here will be rendered</div>
+            </div>
             <div class="grid-container">
         </section>
 
@@ -30,44 +38,56 @@
             <div class="canvas-container">
                 <canvas id="my-canvas" height="550" width="700"></canvas>
             </div>
-            <div class="meme-editor">
-                <div class="editor-btns flex">
-                    <input type="text" class="meme-text" id="meme-text" oninput="renderCanvas(this.value)"
-                        placeholder="type here">
-                    <div class="row-1 flex">
-                        <button onclick="onLineUp()" class="btn-editor"><img src="icons/up-arrow.png"></button>
-                        <button onclick="onLineDown()" class="btn-editor"><img src="icons/down-arrow.png"></button>
-                        <button onclick="onDeleteLine()" class="btn-editor"><img src="icons/delete.png"></button>
-                        <button onclick="onSwitch()" class="btn-editor">switch</button>
-                    </div>
-                    <div class="second-area flex ">
-                        <div class="row-2 flex">
-                            <button onclick="onAdd()" class="btn-editor"><img src="icons/plus.png"></button>
-                            <button onclick="onBiggerFont()" class="btn-editor"><img
-                                    src="icons/a-plus.png"></button></button>
-                            <button onclick="onSmallerFont()" class="btn-editor"><img
-                                    src="icons/a-minus-result.png"></button></button>
-                        </div>
-                        <div class="row-3 flex">
-                            <button onclick="onAlignLeft()" class="btn-editor"><img
-                                    src="icons/align-left.png"></button></button>
-                            <button onclick="onAlignCenter()" class="btn-editor"><img
-                                    src="icons/align-center.png"></button></button>
-                            <button onclick="onAlignRight()" class="btn-editor"><img
-                                    src="icons/align-right.png"></button>
-                            </button>
-                            <button onclick="onFontColor()" class="btn-editor "><img
-                                    src="icons/color-palette.png"></button> <input type="color" id="space-color"
-                                name="space-color" value="#ff0000" oninput="updateColor(this.value)">
-                        </div>
+            <div class="meme-editor flex">
+
+
+                <input type="text" class="meme-text" id="meme-text" oninput="renderCanvas(this.value)"
+                    placeholder="type here">
+                <div class="row row-1 flex">
+                    <button title="Switch row" onclick="onSwitch()" class="btn-editor switch"><img
+                            src="icons/swap.png"></button>
+                    <button title="Add row" onclick="onAdd()" class="btn-editor plus"><img
+                            src="icons/plus.png"></button>
+                    <button title="Clear row" onclick="onDeleteLine()" class="btn-editor trash"><img
+                            src="icons/delete.png"></button>
+                </div>
+                <div class="second-area flex ">
+                    <div class="row row-2 flex">
+                        <button title="Bigger font" onclick="onBiggerFont()" class="btn-editor"><img
+                                src="icons/a-plus.png"></button></button>
+                        <button title="Smaller font" onclick="onSmallerFont()" class="btn-editor"><img
+                                src="icons/a-minus-result.png"></button></button>
+                        <button title="Align left" onclick="onAlignLeft()" class="btn-editor"><img
+                                src="icons/align-left.png"></button></button>
+                        <button title="Align right" onclick="onAlignCenter()" class="btn-editor"><img
+                                src="icons/align-center.png"></button></button>
+                        <button title="Align center" onclick="onAlignRight()" class="btn-editor"><img
+                                src="icons/align-right.png"></button>
                         </button>
                     </div>
-                    <div class="row-4 flex">
-                        <button class="btn-editor" onclick="onShare()">Share</button>
-                        <button class="btn-editor" onclick="onDownload()">download</button>
-                        <button class="btn-editor" onclick="onClear()">Clear</button>
+                    <div class="row row-3 flex">
+                        <button title="Move up" onclick="onLineUp()" class="btn-editor"><img
+                                src="icons/up-arrow.png"></button>
+                        <button title="Move down" onclick="onLineDown()" class="btn-editor"><img
+                                src="icons/down-arrow.png"></button>
+                        <!-- <button title="Font color" onclick="onFontColor()" class="btn-editor"><img
+                                src="icons/color-palette.png"></button> -->
+                        <button onclick="document.querySelector('.fill-color').click()" class="btn-editor"
+                            title="Change color"><img src="icons/color-palette.png"></button>
+                        <input type="color" id="space-color" name="space-color" class="fill-color" value="#ff0000"
+                            oninput="updateColor(this.value)">
                     </div>
+                    </button>
                 </div>
+                <div class="row row-4 flex">
+                    <button title="Upload file" class="btn-editor share" onclick="onShare()"><img
+                            src="icons/share.png"></button>
+                    <button title="Download file" class="btn-editor download" onclick="onDownload()"><img
+                            src="icons/diskette.png"></button>
+                    <button title="Save file" class="btn-editor save" onclick="onSave()"><img
+                            src="icons/upload.png"></button>
+                </div>
+            </div>
 
             </div>
 
@@ -75,9 +95,10 @@
 
     </main>
 
-    <footer>credits </footer>
+    <!-- <footer>credits </footer> -->
 
     <script src="js/canvas-utils.js"></script>
+    <script src="js/storage.js"></script>
     <script src="js/gallery/gallery-service.js"></script>
     <script src="js/gallery/gallery-controller.js"></script>
     <script src="js/editor/editor-service.js"></script>

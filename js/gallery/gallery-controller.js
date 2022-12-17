@@ -18,8 +18,21 @@ function renderGallery() {
 function onImgClick(img) {
     setGmemeImgId(img.id)
     document.querySelector('.gallery').style.display = 'none'
-    showEditor()
+    document.querySelector('.editor').style.display = 'flex'
+    initEditor()
     drawImg(img.src)
 }
 
+function renderSavedMemes() {
+    document.querySelector('.editor').style.display = 'none'
+    document.querySelector('.gallery').style.display = 'block'
+    let strHTMLs = ''
+    const elContainer = document.querySelector('.grid-container')
+    const savedMemes = loadFromStorage(STORAGE_MEMES_KEY)
+    savedMemes.forEach(savedMeme => {
+        strHTMLs += `
+        <img class="cell" src="${savedMeme.url}" />`
+    })
+    elContainer.innerHTML = strHTMLs
+}
 
