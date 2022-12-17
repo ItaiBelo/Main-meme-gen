@@ -7,6 +7,21 @@
     justify-content: space-between;
 }
 
+canvas {
+    box-shadow: 5px 5px 5px #888, -5px -5px 5px #ccc;
+    display: block;
+    margin: 0 auto;
+    background-color: antiquewhite;
+    border-radius: 30px;
+}
+
+.canvas-container {
+    margin: auto;
+    height: 75%;
+    width: 55%;
+}
+
+
 .meme-editor {
     flex-direction: column;
     justify-content: space-evenly;
@@ -18,6 +33,11 @@
     margin: auto;
 }
 
+.row {
+    justify-content: space-evenly;
+    width: 100%;
+}
+
 .btn-editor {
     width: 45px;
     height: 45px;
@@ -26,6 +46,7 @@
     border: 1px black solid;
     transform: scale(1);
     transition: transform 0.5s;
+    background-color: #c5d3d5ed;
 }
 
 .btn-editor:hover {
@@ -33,11 +54,16 @@
     filter: brightness(1.1);
 }
 
-.canvas-container {
-    margin: auto;
-    height: 75%;
-    width: 55%;
+/* line text input */
+.meme-text {
+    width: 85%;
+    height: 8%;
+    box-shadow: 1px 2px 0 #bbc4d1, inset 0 0px 0 #ffffff;
+    border-radius: 28px;
+    text-align: center;
 }
+
+/* first row */
 
 .first-row-btn {
     width: 58px;
@@ -64,24 +90,7 @@
     background-image: linear-gradient(-38deg, #cf1d37 0%, #cf1d37 1%, #f05036 100%);
 }
 
-.forth-row-btn {
-    border-radius: 10px;
-    border: none;
-}
-
-
-.share {
-    background-image: linear-gradient(-38deg, #ffffff 0%, #c34f96 1%, #8036f0 100%);
-}
-
-.download {
-    background-image: linear-gradient(-38deg, #ffffff 0%, #2525e9 1%, #9599cf 100%);
-}
-
-.save {
-    background-image: linear-gradient(-38deg, #ffffff 0%, #e96d25 1%, #dbca7d 100%);
-}
-
+/* sec row */
 .second-area {
     margin-top: 25px;
     flex-direction: column;
@@ -98,19 +107,45 @@
     top: 200px;
 }
 
+/* third row */
 .row-3 {
     margin-top: 25px;
 }
+
+/* forth row */
 
 .row-4 {
     margin-top: 25px;
 }
 
-.meme-text {
-    width: 85%;
-    height: 8%;
-    box-shadow: 1px 2px 0 #bbc4d1, inset 0 0px 0 #ffffff;
-    border-radius: 28px;
+.forth-row-btn {
+    border-radius: 10px;
+    border: none;
+}
+
+.share {
+    background-image: linear-gradient(-38deg, #ffffff 0%, #c34f96 1%, #8036f0 100%);
+}
+
+.download {
+    background-image: linear-gradient(-38deg, #ffffff 0%, #2525e9 1%, #9599cf 100%);
+}
+
+.font-style {
+    border-radius: 10px;
+    background-color: #c5d3d5ed;
+}
+
+.url-link {
+    margin-right: -13px;
+}
+
+.url-link:hover {
+    background-color: transparent;
+}
+
+.save {
+    background-image: linear-gradient(-38deg, #ffffff 0%, #e96d25 1%, #dbca7d 100%);
 }
 
 @media (max-width:600px) {

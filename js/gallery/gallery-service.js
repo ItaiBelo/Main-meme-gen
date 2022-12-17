@@ -1,8 +1,10 @@
 'use strict'
 
-let gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
+let gKeywordSearchCountMap
+let gSavedMemes = []
+let gFilterBy
 let gImgs = [
-    { id: 1, url: 'images/1.jpg', keywords: ['celebes', 'mad'] },
+    { id: 1, url: 'images/1.jpg', keywords: ['celebs', 'mad'] },
     { id: 2, url: 'images/2.jpg', keywords: ['animals', 'Cute'] },
     { id: 3, url: 'images/3.jpg', keywords: ['animals', 'baby'] },
     { id: 4, url: 'images/4.jpg', keywords: ['animals', 'cat'] },
@@ -21,8 +23,6 @@ let gImgs = [
     { id: 17, url: 'images/17.jpg', keywords: ['mad', 'celebs'] },
     { id: 18, url: 'images/18.jpg', keywords: ['funny', 'tv'] },
 ];
-let gSavedMemes = []
-
 
 function getImgs() {
     return gImgs
@@ -37,10 +37,29 @@ function drawImg(file) {
 }
 
 function getImgById(id) {
-    const img = gImgs.find(img => img.id === +id)
-    return img
+    return gImgs.find(img => img.id === +id)
 }
 
-// function filterBySearch{
+function getFilteredImgs(searchWord) {
+    return gImgs.filter(img => img.keywords.includes(searchWord.toLowerCase()))
+}
 
-// }
+function _createKeyWordsMap() {
+    const imgs = getImgs()
+    let keyWordMap = {}
+    ///////img arr run
+    imgs.forEach((img) => {
+        const keys = img.keywords;
+        /////keys arr run
+        keys.forEach((key) => {
+            if (!keyWordMap[key]) keyWordMap[key] = 0;
+            keyWordMap[key]++;
+        })
+    })
+    return keyWordMap;
+}
+
+function getGkeysMap() {
+    return gKeywordSearchCountMap
+}
+

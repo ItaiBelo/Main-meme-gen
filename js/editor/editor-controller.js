@@ -3,13 +3,14 @@
 function initEditor() {
     setGlobalVars()
     resizeCanvas()
-    renderCanvas(gElCanvas, gTextInput)
+    renderCanvas(gTextInput)
     window.addEventListener('resize', () => {
         resizeCanvas()
+        renderCanvas()
     })
 }
 
-function renderCanvas(text) {
+function renderCanvas(text = gMeme.lines[gMeme.selectedLineIdx].txt) {
     gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height)
     var imgId = getImgById(gMeme.selectedImgId).id
     const img = document.getElementById(`${imgId}`)

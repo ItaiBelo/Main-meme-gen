@@ -1,10 +1,12 @@
 'use strict'
 
 function downloadCanvas(elLink) {
-    // Gets the canvas content and convert it to base64 data URL that can be save as an image
-    const data = gElCanvas.toDataURL() // Method returns a data URL containing a representation of the image in the format specified by the type parameter.
-    elLink.href = data // Put it on the link
-    elLink.download = 'My meme' // Can change the name of the file
+    //Protect the image so attacker could not download imgs from diff domain
+    const data = gElCanvas.toDataURL() // For security reason you cannot do toDataUrl on tainted canvas
+    //This protects users from having private data exposed by using images
+    // to pull information from remote web sites without permission.
+    elLink.href = data
+    elLink.download = 'my-img.jpg'
 }
 
 function resizeCanvas() {

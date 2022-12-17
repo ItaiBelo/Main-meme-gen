@@ -13,6 +13,7 @@ var gMeme = {
             size: 45,
             align: 'center',
             color: 'white',
+            font: 'impact'
         },
     ]
 }
@@ -29,7 +30,7 @@ function drawText(y = gElCanvas.offsetHeight / 5, x = gElCanvas.offsetWidth / 2)
         y = line.y
         gCtx.lineWidth = 7
         gCtx.strokeStyle = 'black'
-        gCtx.font = `${line.size}px impact`
+        gCtx.font = `${line.size}px ${line.font}`
         gCtx.fillStyle = line.color
         gCtx.textAlign = line.align;
         gCtx.strokeText(text, x, y)
@@ -71,6 +72,7 @@ function addLine() {
         size: 45,
         align: 'center',
         color: 'white',
+        font: 'impact',
         x: gElCanvas.offsetWidth / 2,
         y: 0
     }
@@ -160,3 +162,9 @@ function toggleMenu() {
     document.body.classList.toggle('menu-open');
 }
 
+function changeFontStyle(font) {
+    var lines = getLine()
+    var currLine = lines[gMeme.selectedLineIdx]
+    currLine.font = font
+    renderCanvas(currLine.txt)
+}
