@@ -1,6 +1,5 @@
 'use strict'
 
-
 function initEditor() {
     setGlobalVars()
     resizeCanvas()
@@ -68,7 +67,6 @@ function onAlignLeft() {
 
 function onAlignCenter() {
     alignCenter()
-
 }
 
 function onAlignRight() {
@@ -81,8 +79,8 @@ function onFontColor() {
     setSpaceColor()
 }
 
-function onDownload() {
-    downloadCanvas()
+function onDownload(url) {
+    downloadCanvas(url)
 }
 
 function onShare() {
@@ -90,12 +88,17 @@ function onShare() {
 }
 
 function onGalleryClick() {
-    gTextInput.value = ''
-    renderGallery()
+    // gTextInput.value = ''
     document.querySelector('.gallery').style.display = 'block'
     document.querySelector('.editor').style.display = 'none'
+    document.querySelector('.search-img').style.display = 'flex'
+    renderGallery()
 }
 
 function onSave() {
     saveCanvas()
+}
+
+function onChangeFontStyle(font) {
+    changeFontStyle(font)
 }
