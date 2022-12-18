@@ -7,6 +7,16 @@
     justify-content: space-between;
 }
 
+
+.editor>div {
+    width: 40%;
+}
+
+.editor-container {
+    width: 100%;
+    height: 100%;
+}
+
 canvas {
     box-shadow: 5px 5px 5px #888, -5px -5px 5px #ccc;
     display: block;
@@ -21,16 +31,16 @@ canvas {
     width: 55%;
 }
 
-
 .meme-editor {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    height: 80%;
+    height: 73%;
     width: 40%;
     background-color: var(--clr4);
     border-radius: 25px;
     margin: auto;
+    margin-top: 95px;
 }
 
 .row {
@@ -43,6 +53,7 @@ canvas {
     height: 45px;
     border-radius: 5px;
     cursor: pointer;
+    padding: 5px;
     border: 1px black solid;
     transform: scale(1);
     transition: transform 0.5s;
@@ -124,11 +135,18 @@ canvas {
 }
 
 .share {
+    box-shadow: 2px 2px 0 #c34f96, inset 0 5px 0 rgba(255, 255, 255, 0.58);
     background-image: linear-gradient(-38deg, #ffffff 0%, #c34f96 1%, #8036f0 100%);
 }
 
 .download {
+    box-shadow: 2px 2px 0 #2525e9, inset 0 5px 0 rgba(255, 255, 255, 0.58);
     background-image: linear-gradient(-38deg, #ffffff 0%, #2525e9 1%, #9599cf 100%);
+}
+
+.save {
+    box-shadow: 2px 2px 0 #e96d25, inset 0 5px 0 rgba(255, 255, 255, 0.58);
+    background-image: linear-gradient(-38deg, #ffffff 0%, #e96d25 1%, #dbca7d 100%);
 }
 
 .font-style {
@@ -144,22 +162,24 @@ canvas {
     background-color: transparent;
 }
 
-.save {
-    background-image: linear-gradient(-38deg, #ffffff 0%, #e96d25 1%, #dbca7d 100%);
-}
 
 @media (max-width:600px) {
     .editor {
         flex-direction: column;
+        height: 90vh;
     }
 
     .canvas-container {
-        height: 55%;
-        width: 100%;
+        margin-top: 25px;
+        height: 45%;
+    }
+
+    .editor>div {
+        width: 85%;
     }
 
     .meme-editor {
-        height: 40%;
+        height: 80%;
         width: 85%;
         border-radius: 25px;
     }

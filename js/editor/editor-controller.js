@@ -23,61 +23,71 @@ function onClear() {
     clearCanvas()
 }
 
-function onSwitch() {
-    let lines = getLine()
-    const currLine = lines[gMeme.selectedLineIdx]
-    const previousLine = lines[gMeme.selectedLineIdx - 1]
-    const lastLine = lines[lines.length - 1]
-
-    if (!gMeme.selectedLineIdx) {
-        gMeme.selectedLineIdx += (lines.length) - 1
-        gTextInput.value = lastLine.txt
-        return
-    }
-    gTextInput.value = previousLine.txt
-    gMeme.selectedLineIdx--
+function onSwitchLine() {
+    switchLine()
+    const currLine = getCurrLine()
+    renderCanvas(currLine.txt)
 }
 
 function onLineUp() {
     lineUp()
+    const currLine = getCurrLine()
+    renderCanvas(currLine.txt)
 }
 
 function onLineDown() {
     lineDown()
+    const currLine = getCurrLine()
+    renderCanvas(currLine.txt)
 }
 
 function onDeleteLine() {
     deleteLine()
+    const currLine = getCurrLine()
+    renderCanvas(currLine.txt)
 }
 
 function onAdd() {
     addLine()
+    const currLine = getCurrLine()
+    renderCanvas(currLine.txt)
 }
 
 function onSmallerFont() {
     smallerFont()
+    const currLine = getCurrLine()
+    renderCanvas(currLine.txt)
 }
 
 function onBiggerFont() {
     biggerFont()
+    const currLine = getCurrLine()
+    renderCanvas(currLine.txt)
 }
 
 function onAlignLeft() {
     alignLeft()
+    const currLine = getCurrLine()
+    renderCanvas(currLine.txt)
 }
 
 function onAlignCenter() {
     alignCenter()
+    const currLine = getCurrLine()
+    renderCanvas(currLine.txt)
 }
 
 function onAlignRight() {
     alignRight()
+    const currLine = getCurrLine()
+    renderCanvas(currLine.txt)
 }
 
-function onFontColor() {
-    var colorPicker = document.querySelector('.space-color')
-    colorPicker.click();
-    setSpaceColor()
+
+function onUpdateColor(color) {
+    updateColor(color)
+    const currLine = getCurrLine()
+    renderCanvas(currLine.txt)
 }
 
 function onDownload(url) {
@@ -102,4 +112,6 @@ function onSave() {
 
 function onChangeFontStyle(font) {
     changeFontStyle(font)
+    const currLine = getCurrLine()
+    renderCanvas(currLine.txt)
 }

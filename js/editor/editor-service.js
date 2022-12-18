@@ -19,7 +19,7 @@ var gMeme = {
 }
 
 function drawText(y = gElCanvas.offsetHeight / 5, x = gElCanvas.offsetWidth / 2) {
-    const lines = getLine()
+    const lines = getLines()
     lines.forEach((line) => {
         const text = line.txt
         if (!line.x) {
@@ -44,12 +44,17 @@ function setGlobalVars() {
     gTextInput = document.getElementById("meme-text");
 }
 
-function getLine() {
+function getLines() {
     return gMeme.lines
 }
 
 function getgMeme() {
     return gMeme;
+}
+
+function getCurrLine() {
+    const lines = getLines()
+    return lines[gMeme.selectedLineIdx]
 }
 
 function setGmemeImgId(id) {
@@ -62,6 +67,21 @@ function changeGMemeText(txt) {
 
 function changeGMemeId(id) {
     gMeme.selectedImgId = id
+}
+
+function switchLine() {
+    const lines = getLines()
+    const currLine = getCurrLine()
+    const previousLine = lines[gMeme.selectedLineIdx - 1]
+    const lastLine = lines[lines.length - 1]
+
+    if (!gMeme.selectedLineIdx) {
+        gMeme.selectedLineIdx += (lines.length) - 1
+        gTextInput.value = lastLine.txt
+        return
+    }
+    gTextInput.value = previousLine.txt
+    gMeme.selectedLineIdx--
 }
 
 function addLine() {
@@ -88,8 +108,8 @@ function addLine() {
 }
 
 function deleteLine() {
-    var lines = getLine()
-    var currLine = lines[gMeme.selectedLineIdx]
+    var lines = getLines()
+    const currLine = getCurrLine()
     var previousLine = lines[gMeme.selectedLineIdx - 1]
     gTextInput.value = ''
     currLine.txt = ''
@@ -100,62 +120,46 @@ function deleteLine() {
 }
 
 function lineUp() {
-    var lines = getLine()
-    var currLine = lines[gMeme.selectedLineIdx]
+    const currLine = getCurrLine()
     currLine.y -= 5
-    renderCanvas(currLine.txt)
 }
 
 function lineDown() {
-    var lines = getLine()
-    var currLine = lines[gMeme.selectedLineIdx]
+    const currLine = getCurrLine()
     currLine.y += 5
-    renderCanvas(currLine.txt)
 }
 
 function biggerFont() {
-    var lines = getLine()
-    var currLine = lines[gMeme.selectedLineIdx]
+    const currLine = getCurrLine()
     currLine.size += 3
-    renderCanvas(currLine.txt)
 }
 
 function smallerFont() {
-    var lines = getLine()
-    var currLine = lines[gMeme.selectedLineIdx]
+    const currLine = getCurrLine()
     currLine.size -= 3
-    renderCanvas(currLine.txt)
 }
 
 function updateColor(color) {
-    var lines = getLine()
-    var currLine = lines[gMeme.selectedLineIdx]
+    const currLine = getCurrLine()
     currLine.color = color
-    renderCanvas(currLine.txt)
 }
 
 function alignRight() {
-    var lines = getLine()
-    var currLine = lines[gMeme.selectedLineIdx]
+    const currLine = getCurrLine()
     currLine.x = gElCanvas.width / 1.2
     currLine.align = 'right'
-    renderCanvas(currLine.txt)
 }
 
 function alignCenter() {
-    var lines = getLine()
-    var currLine = lines[gMeme.selectedLineIdx]
+    const currLine = getCurrLine()
     currLine.align = 'center'
     currLine.x = gElCanvas.width / 2
-    renderCanvas(currLine.txt)
 }
 
 function alignLeft() {
-    var lines = getLine()
-    var currLine = lines[gMeme.selectedLineIdx]
+    const currLine = getCurrLine()
     currLine.align = 'left'
     currLine.x = gElCanvas.width / 10
-    renderCanvas(currLine.txt)
 }
 
 function toggleMenu() {
@@ -163,8 +167,6 @@ function toggleMenu() {
 }
 
 function changeFontStyle(font) {
-    var lines = getLine()
-    var currLine = lines[gMeme.selectedLineIdx]
+    const currLine = getCurrLine()
     currLine.font = font
-    renderCanvas(currLine.txt)
 }

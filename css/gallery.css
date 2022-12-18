@@ -38,7 +38,6 @@
 .search-img {
     margin-top: 15px;
     gap: 5px;
-    width: 90vw;
     margin-bottom: 1rem;
     justify-content: space-around;
     align-items: center;
@@ -70,9 +69,10 @@
     min-width: 10rem;
     background-color: var(--clr1);
     border-radius: 10px;
-    padding-left: 10px;
+    padding-left: 15px;
+    margin-left: 35px;
     color: white;
-    width: 100%;
+    /* width: 120%; */
 }
 
 
@@ -147,5 +147,12 @@
         margin-top: 60px;
     }
 
+    .filter-click {
+        font-size: 15px;
+    }
+
+    .click-filter {
+        display: none;
+    }
 
 }

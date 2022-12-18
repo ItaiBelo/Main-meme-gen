@@ -50,4 +50,15 @@ function renderFilteredImgs(searchWord) {
         strHTMLs += `<img class="cell" src="${img.url}" id=${img.id} onclick="onImgClick(this)">`
     });
     gElContainer.innerHTML = strHTMLs
+    document.getElementById(`${searchWord}`).classList.add('rotate')
+    setTimeout(() => {
+        document.getElementById(`${searchWord}`).classList.remove('rotate')
+    }, 1500);
+}
+
+function toggleRotate(id) {
+    document.getElementById(`${id}`).classList.add('rotate')
+    setTimeout(() => {
+        document.getElementById(`${id}`).classList.remove('rotate')
+    }, 1500);
 }

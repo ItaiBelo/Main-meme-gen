@@ -41,7 +41,9 @@ function getImgById(id) {
 }
 
 function getFilteredImgs(searchWord) {
-    return gImgs.filter(img => img.keywords.includes(searchWord.toLowerCase()))
+    return gImgs.filter(img => {
+        return img.keywords.some(keyword => keyword.includes(searchWord.toLowerCase()));
+    });
 }
 
 function _createKeyWordsMap() {

@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="css/main.css" />
-    <title>Draw canvas</title>
+    <title>MemeGen</title>
 </head>
 
 <body class="main-layout " onload="onInit()">
     <div class="main-screen" onclick="toggleMenu()"> </div>
-    <header class="flex">
+    <header class="flex ">
         <div class="logo" onclick="onGalleryClick()"><img class="logo-img" src="icons/logo.png"></span></div>
 
         <ul class="nav-bar flex clean-list">
@@ -32,29 +32,32 @@
 
                 <div class="click-filter flex justify-center align-center">
                     <span class="filter-click" id="funny" style="font-size: 24px;"
-                        onclick="renderFilteredImgs(this.id)">Funny</span>
+                        onclick="renderFilteredImgs(this.id);toggleRotate(this.id)">Funny</span>
                     <span class="filter-click" id="Celebs" style="font-size: 14px;"
-                        onclick="renderFilteredImgs(this.id)">Celebs</span>
+                        onclick="renderFilteredImgs(this.id);toggleRotate(this.id)">Celebs</span>
                     <span class="filter-click" id="Animals" style="font-size: 15px;"
-                        onclick="renderFilteredImgs(this.id)">Animals</span>
+                        onclick="renderFilteredImgs(this.id);toggleRotate(this.id)">Animals</span>
                     <span class="filter-click" id="Mad" style="font-size: 18px;"
-                        onclick="renderFilteredImgs(this.id)">Mad</span>
+                        onclick="renderFilteredImgs(this.id);toggleRotate(this.id)">Mad</span>
                     <span class="filter-click" id="TV" style="font-size: 21px;"
-                        onclick="renderFilteredImgs(this.id)">TV</span>
+                        onclick="renderFilteredImgs(this.id);toggleRotate(this.id)">TV</span>
                 </div>
             </div>
             <div class="grid-container">
         </section>
 
-        <section class="editor ">
+        <section class="editor space-between">
             <div class="canvas-container">
                 <canvas id="my-canvas" height="550" width="700"></canvas>
             </div>
+            <!-- <div class="editor-container flex"> -->
+
+
             <div class="meme-editor flex">
                 <input type="text" class="meme-text" id="meme-text" oninput="renderCanvas(this.value)"
                     placeholder="Type here">
                 <div class="row row-1 flex">
-                    <button title="Switch row" onclick="onSwitch()" class="btn-editor first-row-btn switch"><img
+                    <button title="Switch row" onclick="onSwitchLine()" class="btn-editor first-row-btn switch"><img
                             src="icons/swap.png"></button>
                     <button title="Add row" onclick="onAdd()" class="btn-editor first-row-btn plus"><img
                             src="icons/plus.png"></button>
@@ -83,7 +86,7 @@
                         <button onclick="document.querySelector('.fill-color').click()" class="btn-editor"
                             title="Change color"><img src="icons/color-palette.png"></button>
                         <input type="color" id="space-color" name="space-color" class="fill-color" value="#ff0000"
-                            oninput="updateColor(this.value)">
+                            oninput="onUpdateColor(this.value)">
                         <select class="font-style" onchange="onChangeFontStyle(this.value)">
                             <option value="impact">Impact</option>
                             <option value="arial">Arial</option>
@@ -103,8 +106,8 @@
                 </div>
             </div>
 
+            <!-- </div> -->
             </div>
-
         </section>
 
     </main>
